@@ -1,10 +1,28 @@
-========================================================================
-RPython Tutorial
-========================================================================
+===============================================================================
+RPython Experiments
+===============================================================================
 
-------------------------------------------------------------------------
-Beginner References
-------------------------------------------------------------------------
+A collection of toy interpreters in RPython for learning about the the
+RPython translation toolchain.
+
+-------------------------------------------------------------------------------
+Project Subdirectories
+-------------------------------------------------------------------------------
+
+The following directories contain experimental interpreters for executing
+textual files. They serve no purpose other than to learn more about the
+capabilities of the RPython translation toolchain.
+
+- parc_interp: An interpreter for the complete PARC ISA.
+- asm_toy_2:   A toy interpreter for (less) simple PARC assembly files.
+- asm_toy_1:   A toy interpreter for (very) simple PARC assembly files.
+- bf:          A simple interpreter for a toy language.
+
+Please see the README files in each subdirectory for more information.
+
+-------------------------------------------------------------------------------
+Beginner RPython References
+-------------------------------------------------------------------------------
 
 - http://www.wilfred.me.uk/blog/2014/05/24/r-python-for-fun-and-profit/
 - http://morepypy.blogspot.com/2011/04/tutorial-writing-interpreter-with-pypy.html
@@ -13,9 +31,9 @@ Beginner References
 - http://pie-interpreter.blogspot.com/2012/12/how-to-make-new-interpreter-with-pypy.html
 - http://indefinitestudies.org/2010/02/08/creating-a-toy-virtual-machine-with-pypy
 
-------------------------------------------------------------------------
-Advanced References
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Advanced RPython References
+-------------------------------------------------------------------------------
 
 - http://morepypy.blogspot.com/2011/03/controlling-tracing-of-interpreter-with.html
 - http://morepypy.blogspot.com/2011/03/controlling-tracing-of-interpreter-with_15.html
@@ -27,9 +45,9 @@ Advanced References
 - https://github.com/samgiles/naulang/blob/master/naulang/compiler/parser.py
 - https://github.com/alex/rply
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 Quick Start: A Very Basic Language Interpreter
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 Running a brainf*ck interpreter in CPython::
 
@@ -65,9 +83,9 @@ A more optimized version::
     --opt=jit tutorial_bf_jit_opt.py
   $ ./tutorial_bf_jit-c tutorial_99.b
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 Toy ISA Interpreter 1
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 This interpreter is a very basic foundation for an ISA interpreter, it
 only includes addiu, addu, and print instructions.  It is useful seeing
@@ -87,9 +105,9 @@ RPython with no JIT::
     simple_asm.py
   $ ./simple_asm-c asm_00.s
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 Toy ISA Interpreter 2
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 This interpreter is a similar to the asm_toy_1, but includes mtc0 and
 mfc0 instructions for testing, as well as demonstrates how a register
@@ -109,9 +127,9 @@ RPython with no JIT::
     interp_asm.py
   $ ./interp_asm-c asm_04.s
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 PARC ISA Interpreter
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 This interpreter is a full interpreter for the PARC ISA! Note that as
 an interpreter it expects assembly files, **not** binaries!
@@ -147,9 +165,9 @@ The the interpreter on an assembly file directly::
 
   $ ./interp_asm_jit-c test.s
 
-------------------------------------------------------------------------
-Untranslatable
-------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+A List of Untranslatable Python Constructs (and Fixes)
+-------------------------------------------------------------------------------
 
 Fails::
   int( some_str, base=16 )
